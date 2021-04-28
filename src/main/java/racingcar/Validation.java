@@ -8,4 +8,11 @@ public class Validation {
         }
         return true;
     }
+
+    public static boolean carLenCheck(String carArr) {
+        if(carArr.length() <= 5){
+            return true;
+        }
+        return false;
+    }
 }

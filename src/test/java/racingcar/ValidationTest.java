@@ -19,4 +19,15 @@ public class ValidationTest {
         Assertions.assertThat(Validation.carCntCheck(carArr1)).isTrue();
         Assertions.assertThat(Validation.carCntCheck(carArr2)).isFalse();
     }
+
+    @Test
+    @DisplayName("자동차이름_5자_이하_입력검증")
+    void 자동차이름_5자_이하_입력검증(){
+        String car = "Tesla,제네시스,벤츠";
+        String[] carArr = car.split(",");
+
+        for(int i=0; i< carArr.length; i++){
+            Assertions.assertThat(Validation.carLenCheck(carArr[i])).isTrue();
+        }
+    }
 }
