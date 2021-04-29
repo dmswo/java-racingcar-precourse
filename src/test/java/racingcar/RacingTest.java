@@ -11,6 +11,7 @@ public class RacingTest {
     void 자동차_전진검증() {
         Racing racing = new Racing();
         RacingStatus status = racing.moveAndStop(5);
+        Assertions.assertThat(status).isEqualTo(RacingStatus.GO);
     }
 
     @Test
@@ -18,5 +19,6 @@ public class RacingTest {
     void 자동차_멈춤검증() {
         Racing racing = new Racing();
         RacingStatus status = racing.moveAndStop(0);
+        Assertions.assertThat(status).isEqualTo(RacingStatus.STOP);
     }
 }
