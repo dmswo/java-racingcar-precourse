@@ -12,4 +12,11 @@ public class RacingTest {
         Racing racing = new Racing();
         RacingStatus status = racing.moveAndStop(5);
     }
+
+    @Test
+    @DisplayName("자동차_멈춤검증")
+    void 자동차_멈춤검증() {
+        Racing racing = new Racing();
+        RacingStatus status = racing.moveAndStop(0);
+    }
 }
