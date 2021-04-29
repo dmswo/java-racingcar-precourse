@@ -10,7 +10,7 @@ public class ValidationTest {
 
     @Test
     @DisplayName("자동차_2대이상_입력검증")
-    void 자동차_2대이상_입력검증(){
+    void 자동차_2대이상_입력검증() {
         String car1 = "Tesla,제네시스,벤츠";
         String[] carArr1 = car1.split(",");
         String car2 = "Tesla";
@@ -22,12 +22,19 @@ public class ValidationTest {
 
     @Test
     @DisplayName("자동차이름_5자_이하_입력검증")
-    void 자동차이름_5자_이하_입력검증(){
+    void 자동차이름_5자_이하_입력검증() {
         String car = "Tesla,제네시스,벤츠";
         String[] carArr = car.split(",");
 
-        for(int i=0; i< carArr.length; i++){
+        for (int i=0; i< carArr.length; i++) {
             Assertions.assertThat(Validation.carLenCheck(carArr[i])).isTrue();
         }
+    }
+
+    @Test
+    @DisplayName("자동차_이동횟수_입력검증")
+    void 이동횟수_입력검증() {
+        String carMove = "3";
+        Assertions.assertThat(Validation.carMoveCheck(carMove)).isTrue();
     }
 }
