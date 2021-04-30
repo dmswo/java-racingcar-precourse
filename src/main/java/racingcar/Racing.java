@@ -1,8 +1,11 @@
 package racingcar;
 
 public class Racing {
-    public void gameStart() {
 
+    RacingInput racingInput = new RacingInput();
+
+    public void gameStart() {
+        racingInput.carInput();
     }
 
     public RacingStatus moveAndStop(int random) {

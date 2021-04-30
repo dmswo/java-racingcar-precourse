@@ -7,9 +7,10 @@ public class Validation {
 
     public static boolean carCntCheck(String[] carArr) {
         if (carArr.length <= 1) {
-            return false;
+            System.out.println("2대이상 입력해주시기 바랍니다.");
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static boolean carLenCheck(String carArr) {

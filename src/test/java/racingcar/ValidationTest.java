@@ -16,8 +16,8 @@ public class ValidationTest {
         String car2 = "Tesla";
         String[] carArr2 = car2.split(",");
 
-        Assertions.assertThat(Validation.carCntCheck(carArr1)).isTrue();
-        Assertions.assertThat(Validation.carCntCheck(carArr2)).isFalse();
+        Assertions.assertThat(Validation.carCntCheck(carArr1)).isFalse();
+        Assertions.assertThat(Validation.carCntCheck(carArr2)).isTrue();
     }
 
     @Test
