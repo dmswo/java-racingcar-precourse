@@ -6,6 +6,7 @@ public class Racing {
 
     public void gameStart() {
         racingInput.carInput();
+        racingInput.moveNumInput();
     }
 
     public RacingStatus moveAndStop(int random) {
