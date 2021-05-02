@@ -3,6 +3,7 @@ package racingcar;
 public class Car {
     private String name;
     private int count;
+    public static final int CAR_STOP = 3;
 
     public Car() {}
 
@@ -26,7 +27,7 @@ public class Car {
     }
 
     public RacingStatus moveAndStop(int random) {
-        if (random <= 3) {
+        if (random <= CAR_STOP) {
             return RacingStatus.STOP;
         }
         return RacingStatus.GO;

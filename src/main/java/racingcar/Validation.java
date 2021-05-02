@@ -5,8 +5,11 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
+    public static final int CAR_CNT_MIN = 1;
+    public static final int CAR_NAME_MAX = 5;
+
     public static boolean carCntCheck(String[] carArr) {
-        if (carArr.length <= 1) {
+        if (carArr.length <= CAR_CNT_MIN) {
             System.out.println("2대이상 입력해주시기 바랍니다.");
             return true;
         }
@@ -14,7 +17,7 @@ public class Validation {
     }
     public static boolean carLenCheck(String[] carArr) {
         for (int i = 0; i < carArr.length; i++) {
-            if (carArr[i].length() > 5) {
+            if (carArr[i].length() > CAR_NAME_MAX) {
                 System.out.println("자동차이름은 5자 이하로 입력해주시기 바랍니다.");
                 return true;
             }
