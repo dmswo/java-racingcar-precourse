@@ -26,6 +26,7 @@ public class Racing {
         System.out.println("실행 결과");
         for (int i = 0; i < tryNum; i++) {
             play(cars.getCars());
+            show(cars.getCars());
         }
     }
 
@@ -35,4 +36,21 @@ public class Racing {
             car.get(i).addCount(randomNum);
         }
     }
+
+    private void show(List<Car> car){
+        for (int i = 0; i < car.size(); i++) {
+            System.out.print(car.get(i).getName() + " : ");
+            System.out.println(print(car.get(i).getCount()));
+        }
+        System.out.println();
+    }
+
+    private String print(int getCount){
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < getCount; i++) {
+            str.append("-");
+        }
+        return str.toString();
+    }
+
 }
