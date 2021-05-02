@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Racing {
     private Cars cars;
@@ -56,15 +55,17 @@ public class Racing {
 
     private void gameResult(Cars cars){
         List<Car> car = cars.getCars();
+        gameResultSetting(car);
+        gameResultShow();
+    }
+
+    private void gameResultSetting(List<Car> car){
         for (int i = 0; i < car.size(); i++) {
             maxMove(car.get(i).getCount());
         }
-
         for (int i = 0; i < car.size(); i++) {
-            victory(car.get(i), maxMove, i);
+            victory(car.get(i), maxMove);
         }
-        String result = victoryList.stream().collect(Collectors.joining(","));
-        System.out.println(result+"가 최종 우승했습니다.");
     }
 
     private void maxMove(int move){
@@ -73,9 +74,25 @@ public class Racing {
         }
     }
 
-    private void victory(Car car, int maxMove, int index){
+    private void victory(Car car, int maxMove){
         if(car.getCount() == maxMove){
             victoryList.add(car.getName());
         }
+    }
+
+    private void gameResultShow(){
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < victoryList.size(); i++) {
+            result.append(victoryList.get(i));
+            result.append(comma(victoryList.get(i), i));
+        }
+        System.out.println(result.toString()+"가 최종 우승했습니다.");
+    }
+
+    private String comma(String victory, int index){
+        if(index != victoryList.size()-1){
+            return ",";
+        }
+        return "";
     }
 }
