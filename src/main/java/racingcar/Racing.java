@@ -1,18 +1,17 @@
 package racingcar;
 
 public class Racing {
-
-    RacingInput racingInput = new RacingInput();
+    private Cars cars;
+    private int tryNum = 0;
 
     public void gameStart() {
-        racingInput.carInput();
-        racingInput.moveNumInput();
+        gameInputData();
     }
 
-    public RacingStatus moveAndStop(int random) {
-        if (random <= 3) {
-            return RacingStatus.STOP;
-        }
-        return RacingStatus.GO;
+    private void gameInputData(){
+        RacingInput racingInput = new RacingInput();
+        String[] car = racingInput.carInput();
+        cars = new Cars(car);
+        tryNum = Integer.parseInt(racingInput.moveNumInput());
     }
 }
