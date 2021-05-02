@@ -10,4 +10,17 @@ public class Car {
         this.name = name;
         this.count = 0;
     }
+
+    public void addCount(int randomNum){
+        if(moveAndStop(randomNum) == RacingStatus.GO){
+            count++;
+        }
+    }
+
+    public RacingStatus moveAndStop(int random) {
+        if (random <= 3) {
+            return RacingStatus.STOP;
+        }
+        return RacingStatus.GO;
+    }
 }
