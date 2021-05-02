@@ -28,6 +28,7 @@ public class Racing {
             play(cars.getCars());
             show(cars.getCars());
         }
+        gameResult(cars);
     }
 
     private void play(List<Car> car){
@@ -53,4 +54,28 @@ public class Racing {
         return str.toString();
     }
 
+    private void gameResult(Cars cars){
+        List<Car> car = cars.getCars();
+        for (int i = 0; i < car.size(); i++) {
+            maxMove(car.get(i).getCount());
+        }
+
+        for (int i = 0; i < car.size(); i++) {
+            victory(car.get(i), maxMove, i);
+        }
+        String result = victoryList.stream().collect(Collectors.joining(","));
+        System.out.println(result+"가 최종 우승했습니다.");
+    }
+
+    private void maxMove(int move){
+        if(maxMove < move){
+            maxMove = move;
+        }
+    }
+
+    private void victory(Car car, int maxMove, int index){
+        if(car.getCount() == maxMove){
+            victoryList.add(car.getName());
+        }
+    }
 }
